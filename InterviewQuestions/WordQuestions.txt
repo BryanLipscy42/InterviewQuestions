@@ -1,0 +1,15 @@
+﻿These are questions that I have asked and been asked in interviews
+
+1. You have 3 crates. 
+	One crate is labeled apples. 
+	One crate is labeled oranges. 
+	One crate apples and oranges. 
+	
+	All of the crates are labeled wrong.
+	With picking one item from any box how to you label each crate correctly?
+
+	I would pick one fruit from the crate labeled "apples and orages". 
+		If it an apple I would change the label to "Apples". 
+		I know the "Oranges" crate is labeled wrong. I would change the label to "Apples and oranges"
+		I know the "Apples" crate is labeled wrong. I would change the label to "Oranges"
+
