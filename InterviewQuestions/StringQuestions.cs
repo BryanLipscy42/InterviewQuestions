@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace InterviewQuestions
@@ -98,6 +99,23 @@ namespace InterviewQuestions
                 words[i] = new string(word);
             }
             return string.Join(" ", words);
+        }
+    
+        public Dictionary<string, int> CountEachWordInstanceInAString(string input)
+        {
+            var retVal = new Dictionary<string, int>();
+            var words = input.Split(" ");
+            foreach(var word in words)
+            {
+                var temp = word.Replace(",", "").Replace(".", "").Replace(";", "").Trim();
+                if (temp != string.Empty && !retVal.ContainsKey(temp))
+                {
+                    var nn = words.Count(n => n.Replace(",", "").Replace(".", "").Replace(";", "").Equals(temp));
+                    retVal.Add(temp, nn);
+                }
+            }
+
+            return retVal;
         }
     }
 }

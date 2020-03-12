@@ -4,16 +4,32 @@ namespace InterviewQuestions
 {
     class Program
     {
+        private const string PARAGRAPH = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+        private const string PARAGRAPHWITHSPACES = "  Lorem  ipsum dolor sit amet, consectetur  adipiscing elit.   Lorem ipsum  dolor sit amet, consectetur  adipiscing elit. Lorem ipsum dolor sit amet, consectetur  adipiscing elit.  ";
+        private const string SENTANCE = "The quick brown fox jumped over the lazy old dog";
         static void Main(string[] args)
         {
             var sq = new StringQuestions();
-            var input = "The quick brown fox jumped over the lazy old dog";
-            Console.WriteLine($"ReverseCharactersAndWords01:{Environment.NewLine}\toriginal = {input}{Environment.NewLine}\toutput == {sq.ReverseCharactersAndWords01(input)}");
-            Console.WriteLine($"ReverseCharactersAndWords02:{Environment.NewLine}\toriginal = {input}{Environment.NewLine}\toutput == {sq.ReverseCharactersAndWords02(input)}");
+            Console.WriteLine($"ReverseCharactersAndWords01:{Environment.NewLine}\toriginal = {SENTANCE}{Environment.NewLine}\toutput == {sq.ReverseCharactersAndWords01(SENTANCE)}");
+            Console.WriteLine($"ReverseCharactersAndWords02:{Environment.NewLine}\toriginal = {SENTANCE}{Environment.NewLine}\toutput == {sq.ReverseCharactersAndWords02(SENTANCE)}");
             
-            Console.WriteLine($"Reverse words:{Environment.NewLine}\toriginal = {input}{Environment.NewLine}\toutput == {sq.ReverseWords(input)}");
-            Console.WriteLine($"Reverse characters in each word:{Environment.NewLine}\toriginal = {input}{Environment.NewLine}\toutput == {sq.ReverseCharactersInEachWord(input)}");
-            
+            Console.WriteLine($"Reverse words:{Environment.NewLine}\toriginal = {SENTANCE}{Environment.NewLine}\toutput == {sq.ReverseWords(SENTANCE)}");
+            Console.WriteLine($"Reverse characters in each word:{Environment.NewLine}\toriginal = {SENTANCE}{Environment.NewLine}\toutput == {sq.ReverseCharactersInEachWord(SENTANCE)}");
+
+            var wordCounts = sq.CountEachWordInstanceInAString(PARAGRAPH);
+            Console.WriteLine("Counting occurances of words in a string");
+            foreach(var word in wordCounts)
+            {
+                Console.WriteLine($"\t{word.Key}\t{word.Value}");
+            }
+
+            wordCounts = sq.CountEachWordInstanceInAString(PARAGRAPHWITHSPACES);
+            Console.WriteLine("Counting occurances of words in a string with multiple spaces");
+            foreach (var word in wordCounts)
+            {
+                Console.WriteLine($"\t{word.Key}\t{word.Value}");
+            }
+
             Console.ReadKey();
         }
 
@@ -50,5 +66,6 @@ namespace InterviewQuestions
             var newcopy = dlList.DeepCopy();
         }
 
+        
     }
 }
