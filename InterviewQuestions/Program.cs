@@ -6,7 +6,12 @@ namespace InterviewQuestions
     {
         static void Main(string[] args)
         {
-            var list = CopyDoublyLinkedList();
+            var sq = new StringQuestions();
+            var string01 = "The quick brown fox jumped over the lazy old dog";
+            Console.WriteLine($"Reverse string 01: original = {string01} - reversed == {sq.ReverseString01(string01)}");
+            Console.WriteLine($"Reverse string 02: original = {string01} - reversed == {sq.ReverseString02(string01)}");
+            Console.WriteLine($"Reverse words: original = {string01} - reversed == {sq.ReverseWords(string01)}");
+            Console.ReadKey();
         }
 
         static DoubleLinkedList CopyDoublyLinkedList()
