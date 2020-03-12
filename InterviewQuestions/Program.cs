@@ -7,10 +7,13 @@ namespace InterviewQuestions
         static void Main(string[] args)
         {
             var sq = new StringQuestions();
-            var string01 = "The quick brown fox jumped over the lazy old dog";
-            Console.WriteLine($"Reverse string 01: original = {string01} - reversed == {sq.ReverseString01(string01)}");
-            Console.WriteLine($"Reverse string 02: original = {string01} - reversed == {sq.ReverseString02(string01)}");
-            Console.WriteLine($"Reverse words: original = {string01} - reversed == {sq.ReverseWords(string01)}");
+            var input = "The quick brown fox jumped over the lazy old dog";
+            Console.WriteLine($"ReverseCharactersAndWords01:{Environment.NewLine}\toriginal = {input}{Environment.NewLine}\toutput == {sq.ReverseCharactersAndWords01(input)}");
+            Console.WriteLine($"ReverseCharactersAndWords02:{Environment.NewLine}\toriginal = {input}{Environment.NewLine}\toutput == {sq.ReverseCharactersAndWords02(input)}");
+            
+            Console.WriteLine($"Reverse words:{Environment.NewLine}\toriginal = {input}{Environment.NewLine}\toutput == {sq.ReverseWords(input)}");
+            Console.WriteLine($"Reverse characters in each word:{Environment.NewLine}\toriginal = {input}{Environment.NewLine}\toutput == {sq.ReverseCharactersInEachWord(input)}");
+            
             Console.ReadKey();
         }
 

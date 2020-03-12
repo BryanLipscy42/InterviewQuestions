@@ -6,8 +6,12 @@ namespace InterviewQuestions
 {
     public class StringQuestions
     {
-
-        public string ReverseString01(string input)
+        /// <summary>
+        /// Reverse a string using string concatention
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public string ReverseCharactersAndWords01(string input)
         {
             string result = "";
             for(int i = input.Length -1; i >= 0; i--)
@@ -18,7 +22,12 @@ namespace InterviewQuestions
             return result;
         }
 
-        public string ReverseString02(string input)
+        /// <summary>
+        /// Reverse a string in place
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public string ReverseCharactersAndWords02(string input)
         {
             var chars = input.ToCharArray();
 
@@ -33,13 +42,17 @@ namespace InterviewQuestions
             return retVal;
         }
 
+        /// <summary>
+        /// Reverse the words of a string using string concatenation
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public string ReverseWords(string input)
         {
-
             var words = input.Split(" ");
-            var upperBound = (words.Length - 1) / 2;
+            var upperBound = words.Length;
 
-            for(int i = 0; i< upperBound; i++)
+            for(int i = 0; i< words.Length / 2; i++)
             {
                 string temp = words[i];
                 words[i] = words[words.Length - 1 - i];
@@ -60,6 +73,31 @@ namespace InterviewQuestions
             }
 
             return retVal;
+        }
+
+        /// <summary>
+        /// Reverse the characters in each word preserving the word sequence
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public string ReverseCharactersInEachWord(string input)
+        {
+            var words = input.Split(" ");
+            var upperBound = words.Length;
+
+            for(int i = 0; i < upperBound; i++)
+            {
+                var word = words[i].ToCharArray();
+                var wordLength = word.Length;
+                for(int j =0; j < wordLength / 2; j++)
+                {
+                    var temp = word[j];
+                    word[j] = word[word.Length - 1 - j];
+                    word[word.Length - 1 - j] = temp;
+                }
+                words[i] = new string(word);
+            }
+            return string.Join(" ", words);
         }
     }
 }
